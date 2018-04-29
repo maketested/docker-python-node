@@ -3,9 +3,6 @@ TAG = python-node:latest
 .PHONY: all
 all: build
 
-.PHONY: ci
-ci: build test
-
 # LOCAL #######################################################################
 
 .PHONY: doctor
@@ -16,8 +13,8 @@ doctor:
 
 .PHONY: build
 build:
-	docker build . --tag=$(TAG)
+	docker build . --pull --tag=$(TAG)
 
 .PHONY: test
 test:
-	docker run -v $(PWD):/host -i $(TAG) bash -c "cd ~ && cp -a /host/. . && make doctor"
+	docker run -v $(PWD):/host -i $(TAG) bash -c "cp -a /host/. . && make doctor"
