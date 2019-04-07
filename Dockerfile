@@ -1,8 +1,8 @@
-FROM circleci/python:3.6.5-stretch-browsers
+FROM circleci/python:3.6.8-stretch-browsers
 
 # Pipenv
 
-RUN sudo pip install --upgrade pipenv && \
+RUN sudo pip install --upgrade pip pipenv && \
 pipenv --version
 
 # Node
